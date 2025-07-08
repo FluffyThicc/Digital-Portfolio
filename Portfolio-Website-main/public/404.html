@@ -4,11 +4,26 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      sessionStorage.redirect = location.href;
+      var pathSegments = location.pathname.split('/');
+      var newPath = '/Digital-Portfolio/';
+      
+      if (pathSegments.length > 2) {
+        newPath += pathSegments.slice(2).join('/');
+      }
+      
+      if (location.search) {
+        newPath += location.search;
+      }
+      
+      if (location.hash) {
+        newPath += location.hash;
+      }
+      
+      window.location.replace(newPath);
     </script>
-    <meta http-equiv="refresh" content="0;URL='https://fluffythicc.github.io/Digital-Portfolio/'">
+    <meta http-equiv="refresh" content="0;URL='/Digital-Portfolio/'">
   </head>
   <body>
-    <p>Redirecting to home page...</p>
+    <p>If you are not redirected automatically, <a href="/Digital-Portfolio/">click here</a>.</p>
   </body>
 </html>
