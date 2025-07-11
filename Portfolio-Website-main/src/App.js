@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
@@ -14,6 +14,12 @@ import VideoIntro from "./components/VideoIntro";
 console.log('Base URL:', process.env.PUBLIC_URL);
 
 function App() {
+  const [showVideoIntro, setShowVideoIntro] = useState(true);
+
+  const handleVideoComplete = () => {
+    setShowVideoIntro(false);
+  };
+
   return (
     <>
       <NavBar />
@@ -23,7 +29,7 @@ function App() {
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
-      <VideoIntro />
+      {showVideoIntro && <VideoIntro onComplete={handleVideoComplete} />}
     </>
   );
 }

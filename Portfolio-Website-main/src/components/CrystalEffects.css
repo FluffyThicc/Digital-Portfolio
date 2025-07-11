@@ -1,0 +1,344 @@
+/* Crystal Effects Container */
+.crystal-effects {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+/* Enhanced parallax effects for all particles */
+.crystal-effects * {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Shake animation for movement responsiveness */
+@keyframes particleShake {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  10% { transform: translateX(-1px) translateY(-1px) rotate(-0.5deg); }
+  20% { transform: translateX(1px) translateY(1px) rotate(0.5deg); }
+  30% { transform: translateX(-1px) translateY(1px) rotate(-0.3deg); }
+  40% { transform: translateX(1px) translateY(-1px) rotate(0.3deg); }
+  50% { transform: translateX(-0.5px) translateY(-0.5px) rotate(-0.2deg); }
+  60% { transform: translateX(0.5px) translateY(0.5px) rotate(0.2deg); }
+  70% { transform: translateX(-0.5px) translateY(0.5px) rotate(-0.1deg); }
+  80% { transform: translateX(0.5px) translateY(-0.5px) rotate(0.1deg); }
+  90% { transform: translateX(-0.2px) translateY(-0.2px) rotate(-0.05deg); }
+}
+
+/* Enhanced movement responsiveness */
+.crystal-effects.moving .glitter,
+.crystal-effects.moving .purple-sparkle,
+.crystal-effects.moving .energy-orb,
+.crystal-effects.moving .crystal {
+  animation-duration: 0.8s !important;
+  filter: brightness(1.2) contrast(1.1);
+}
+
+/* Glitter Particles - Very Subtle */
+.glitter {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  opacity: 0.15;
+  filter: blur(0.2px) drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+  animation: glitterFloat 20s ease-in-out infinite;
+  z-index: 10;
+  will-change: transform;
+}
+
+.glitter-1 { top: 15vh; left: 25vw; animation: glitterFloat1 18s ease-in-out infinite; }
+.glitter-2 { top: 45vh; left: 75vw; animation: glitterFloat2 22s ease-in-out infinite; }
+.glitter-3 { top: 80vh; left: 35vw; animation: glitterFloat3 25s ease-in-out infinite; }
+.glitter-4 { top: 25vh; left: 85vw; animation: glitterFloat4 20s ease-in-out infinite; }
+.glitter-5 { top: 65vh; left: 15vw; animation: glitterFloat5 24s ease-in-out infinite; }
+.glitter-6 { top: 90vh; left: 65vw; animation: glitterFloat6 19s ease-in-out infinite; }
+.glitter-7 { top: 35vh; left: 45vw; animation: glitterFloat7 23s ease-in-out infinite; }
+.glitter-8 { top: 70vh; left: 55vw; animation: glitterFloat8 21s ease-in-out infinite; }
+
+@keyframes glitterFloat1 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.4; }
+  25% { transform: translateY(-25px) translateX(15px) scale(1.3) rotate(90deg); opacity: 0.6; }
+  50% { transform: translateY(-40px) translateX(-10px) scale(1.1) rotate(180deg); opacity: 0.5; }
+  75% { transform: translateY(-15px) translateX(25px) scale(1.4) rotate(270deg); opacity: 0.7; }
+}
+
+@keyframes glitterFloat2 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.4; }
+  33% { transform: translateY(30px) translateX(-20px) scale(1.2) rotate(-90deg); opacity: 0.6; }
+  66% { transform: translateY(45px) translateX(15px) scale(1.1) rotate(-180deg); opacity: 0.5; }
+}
+
+@keyframes glitterFloat3 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.4; }
+  20% { transform: translateY(-35px) translateX(12px) scale(1.4) rotate(120deg); opacity: 0.7; }
+  40% { transform: translateY(-50px) translateX(-8px) scale(1.2) rotate(240deg); opacity: 0.5; }
+  60% { transform: translateY(-25px) translateX(20px) scale(1.3) rotate(360deg); opacity: 0.6; }
+  80% { transform: translateY(-40px) translateX(-15px) scale(1.1) rotate(480deg); opacity: 0.4; }
+}
+
+@keyframes glitterFloat4 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.4; }
+  25% { transform: translateY(20px) translateX(-18px) scale(1.2) rotate(-120deg); opacity: 0.6; }
+  50% { transform: translateY(35px) translateX(10px) scale(1.3) rotate(-240deg); opacity: 0.7; }
+  75% { transform: translateY(15px) translateX(-25px) scale(1.1) rotate(-360deg); opacity: 0.5; }
+}
+
+@keyframes glitterFloat5 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.4; }
+  30% { transform: translateY(-30px) translateX(8px) scale(1.3) rotate(150deg); opacity: 0.6; }
+  60% { transform: translateY(-45px) translateX(-12px) scale(1.1) rotate(300deg); opacity: 0.5; }
+  90% { transform: translateY(-20px) translateX(18px) scale(1.4) rotate(450deg); opacity: 0.7; }
+}
+
+@keyframes glitterFloat6 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.4; }
+  40% { transform: translateY(25px) translateX(-15px) scale(1.2) rotate(-180deg); opacity: 0.6; }
+  80% { transform: translateY(40px) translateX(10px) scale(1.3) rotate(-360deg); opacity: 0.7; }
+}
+
+@keyframes glitterFloat7 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.4; }
+  50% { transform: translateY(-20px) translateX(22px) scale(1.4) rotate(200deg); opacity: 0.7; }
+}
+
+@keyframes glitterFloat8 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.4; }
+  25% { transform: translateY(30px) translateX(-12px) scale(1.1) rotate(-150deg); opacity: 0.5; }
+  50% { transform: translateY(45px) translateX(18px) scale(1.3) rotate(-300deg); opacity: 0.6; }
+  75% { transform: translateY(25px) translateX(-20px) scale(1.2) rotate(-450deg); opacity: 0.7; }
+}
+
+/* Purple Sparkles - Very Subtle */
+.purple-sparkle {
+  position: absolute;
+  width: 1.5px;
+  height: 1.5px;
+  background: rgba(160, 133, 255, 0.2);
+  border-radius: 50%;
+  opacity: 0.1;
+  filter: blur(0.3px) drop-shadow(0 0 2px rgba(160, 133, 255, 0.15));
+  animation: purpleSparkleFloat 25s ease-in-out infinite;
+  z-index: 10;
+  will-change: transform;
+}
+
+.sparkle-1 { top: 18vh; left: 22vw; animation: purpleSparkleFloat1 28s ease-in-out infinite; }
+.sparkle-2 { top: 60vh; left: 70vw; animation: purpleSparkleFloat2 32s ease-in-out infinite; }
+.sparkle-3 { top: 40vh; left: 50vw; animation: purpleSparkleFloat3 26s ease-in-out infinite; }
+.sparkle-4 { top: 75vh; left: 30vw; animation: purpleSparkleFloat4 30s ease-in-out infinite; }
+.sparkle-5 { top: 30vh; left: 80vw; animation: purpleSparkleFloat5 34s ease-in-out infinite; }
+.sparkle-6 { top: 85vh; left: 60vw; animation: purpleSparkleFloat6 29s ease-in-out infinite; }
+
+@keyframes purpleSparkleFloat1 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.3; }
+  33% { transform: translateY(-35px) translateX(12px) scale(1.2) rotate(120deg); opacity: 0.5; }
+  66% { transform: translateY(-50px) translateX(-15px) scale(1.3) rotate(240deg); opacity: 0.4; }
+}
+
+@keyframes purpleSparkleFloat2 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.3; }
+  25% { transform: translateY(40px) translateX(-18px) scale(1.1) rotate(-90deg); opacity: 0.5; }
+  50% { transform: translateY(55px) translateX(10px) scale(1.4) rotate(-180deg); opacity: 0.4; }
+  75% { transform: translateY(30px) translateX(-25px) scale(1.2) rotate(-270deg); opacity: 0.6; }
+}
+
+@keyframes purpleSparkleFloat3 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.3; }
+  40% { transform: translateY(-25px) translateX(20px) scale(1.3) rotate(150deg); opacity: 0.5; }
+  80% { transform: translateY(-40px) translateX(-8px) scale(1.1) rotate(300deg); opacity: 0.4; }
+}
+
+@keyframes purpleSparkleFloat4 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.3; }
+  50% { transform: translateY(30px) translateX(-22px) scale(1.2) rotate(-200deg); opacity: 0.5; }
+}
+
+@keyframes purpleSparkleFloat5 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.3; }
+  20% { transform: translateY(-45px) translateX(15px) scale(1.4) rotate(180deg); opacity: 0.5; }
+  40% { transform: translateY(-60px) translateX(-10px) scale(1.1) rotate(360deg); opacity: 0.4; }
+  60% { transform: translateY(-35px) translateX(25px) scale(1.3) rotate(540deg); opacity: 0.6; }
+  80% { transform: translateY(-50px) translateX(-18px) scale(1.2) rotate(720deg); opacity: 0.3; }
+}
+
+@keyframes purpleSparkleFloat6 {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.3; }
+  30% { transform: translateY(35px) translateX(-12px) scale(1.1) rotate(-150deg); opacity: 0.5; }
+  60% { transform: translateY(50px) translateX(18px) scale(1.3) rotate(-300deg); opacity: 0.4; }
+  90% { transform: translateY(25px) translateX(-20px) scale(1.2) rotate(-450deg); opacity: 0.6; }
+}
+
+/* Energy Orbs - More Subtle */
+.energy-orb {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(160, 133, 255, 0.3) 0%, rgba(123, 97, 255, 0.2) 50%, transparent 100%);
+  opacity: 0.4;
+  filter: blur(1px) drop-shadow(0 0 8px rgba(160, 133, 255, 0.3));
+  animation: orbFloat 30s ease-in-out infinite;
+  z-index: 10;
+  will-change: transform;
+}
+
+.orb-1 { top: 20vh; left: 15vw; animation: orbFloat1 38s ease-in-out infinite; }
+.orb-2 { top: 70vh; left: 75vw; animation: orbFloat2 42s ease-in-out infinite; }
+.orb-3 { top: 40vh; left: 85vw; animation: orbFloat3 36s ease-in-out infinite; }
+.orb-4 { top: 80vh; left: 25vw; animation: orbFloat4 40s ease-in-out infinite; }
+
+@keyframes orbFloat1 {
+  0% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.4; }
+  25% { transform: translateY(-30px) translateX(20px) scale(1.2) rotate(90deg); opacity: 0.6; }
+  50% { transform: translateY(-45px) translateX(-15px) scale(1.1) rotate(180deg); opacity: 0.5; }
+  75% { transform: translateY(-20px) translateX(25px) scale(1.3) rotate(270deg); opacity: 0.7; }
+  100% { transform: translateY(0) translateX(0) scale(1) rotate(360deg); opacity: 0.4; }
+}
+
+@keyframes orbFloat2 {
+  0% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.4; }
+  33% { transform: translateY(35px) translateX(-18px) scale(1.1) rotate(-120deg); opacity: 0.6; }
+  66% { transform: translateY(50px) translateX(12px) scale(1.2) rotate(-240deg); opacity: 0.5; }
+  100% { transform: translateY(0) translateX(0) scale(1) rotate(-360deg); opacity: 0.4; }
+}
+
+@keyframes orbFloat3 {
+  0% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.4; }
+  20% { transform: translateY(-40px) translateX(15px) scale(1.3) rotate(150deg); opacity: 0.6; }
+  40% { transform: translateY(-55px) translateX(-10px) scale(1.1) rotate(300deg); opacity: 0.5; }
+  60% { transform: translateY(-30px) translateX(22px) scale(1.2) rotate(450deg); opacity: 0.7; }
+  80% { transform: translateY(-45px) translateX(-18px) scale(1.4) rotate(600deg); opacity: 0.4; }
+  100% { transform: translateY(0) translateX(0) scale(1) rotate(720deg); opacity: 0.4; }
+}
+
+@keyframes orbFloat4 {
+  0% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.4; }
+  25% { transform: translateY(30px) translateX(-20px) scale(1.2) rotate(-90deg); opacity: 0.6; }
+  50% { transform: translateY(45px) translateX(15px) scale(1.1) rotate(-180deg); opacity: 0.5; }
+  75% { transform: translateY(20px) translateX(-25px) scale(1.3) rotate(-270deg); opacity: 0.7; }
+  100% { transform: translateY(0) translateX(0) scale(1) rotate(-360deg); opacity: 0.4; }
+}
+
+/* Floating Crystals - More Subtle */
+.crystal {
+  position: absolute;
+  width: 12px;
+  height: 16px;
+  background: linear-gradient(135deg, rgba(160, 133, 255, 0.4) 0%, rgba(123, 97, 255, 0.3) 50%, rgba(160, 133, 255, 0.2) 100%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  opacity: 0.5;
+  filter: blur(0.6px) drop-shadow(0 0 6px rgba(160, 133, 255, 0.4));
+  animation: crystalFloat 35s ease-in-out infinite;
+  z-index: 10;
+  will-change: transform;
+}
+
+.crystal-1 { top: 25vh; left: 20vw; animation: crystalFloat1 41s ease-in-out infinite; }
+.crystal-2 { top: 65vh; left: 80vw; animation: crystalFloat2 45s ease-in-out infinite; }
+.crystal-3 { top: 45vh; left: 10vw; animation: crystalFloat3 39s ease-in-out infinite; }
+.crystal-4 { top: 85vh; left: 70vw; animation: crystalFloat4 43s ease-in-out infinite; }
+.crystal-5 { top: 15vh; left: 60vw; animation: crystalFloat5 47s ease-in-out infinite; }
+
+@keyframes crystalFloat1 {
+  0% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.5; }
+  20% { transform: translateY(-25px) translateX(18px) scale(1.1) rotate(120deg); opacity: 0.7; }
+  40% { transform: translateY(-40px) translateX(-12px) scale(1.2) rotate(240deg); opacity: 0.6; }
+  60% { transform: translateY(-15px) translateX(25px) scale(1.3) rotate(360deg); opacity: 0.8; }
+  80% { transform: translateY(-35px) translateX(-15px) scale(1.1) rotate(480deg); opacity: 0.5; }
+  100% { transform: translateY(0) translateX(0) scale(1) rotate(600deg); opacity: 0.5; }
+}
+
+@keyframes crystalFloat2 {
+  0% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.5; }
+  25% { transform: translateY(30px) translateX(-20px) scale(1.2) rotate(-150deg); opacity: 0.7; }
+  50% { transform: translateY(45px) translateX(15px) scale(1.1) rotate(-300deg); opacity: 0.6; }
+  75% { transform: translateY(20px) translateX(-25px) scale(1.3) rotate(-450deg); opacity: 0.8; }
+  100% { transform: translateY(0) translateX(0) scale(1) rotate(-600deg); opacity: 0.5; }
+}
+
+@keyframes crystalFloat3 {
+  0% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.5; }
+  30% { transform: translateY(-35px) translateX(12px) scale(1.3) rotate(180deg); opacity: 0.7; }
+  60% { transform: translateY(-50px) translateX(-18px) scale(1.1) rotate(360deg); opacity: 0.6; }
+  90% { transform: translateY(-25px) translateX(22px) scale(1.2) rotate(540deg); opacity: 0.8; }
+  100% { transform: translateY(0) translateX(0) scale(1) rotate(720deg); opacity: 0.5; }
+}
+
+@keyframes crystalFloat4 {
+  0% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.5; }
+  40% { transform: translateY(25px) translateX(-15px) scale(1.1) rotate(-200deg); opacity: 0.7; }
+  80% { transform: translateY(40px) translateX(20px) scale(1.3) rotate(-400deg); opacity: 0.6; }
+  100% { transform: translateY(0) translateX(0) scale(1) rotate(-600deg); opacity: 0.5; }
+}
+
+@keyframes crystalFloat5 {
+  0% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0.5; }
+  15% { transform: translateY(-45px) translateX(18px) scale(1.2) rotate(90deg); opacity: 0.7; }
+  30% { transform: translateY(-60px) translateX(-10px) scale(1.1) rotate(180deg); opacity: 0.6; }
+  45% { transform: translateY(-35px) translateX(25px) scale(1.4) rotate(270deg); opacity: 0.8; }
+  60% { transform: translateY(-50px) translateX(-15px) scale(1.2) rotate(360deg); opacity: 0.5; }
+  75% { transform: translateY(-20px) translateX(20px) scale(1.3) rotate(450deg); opacity: 0.7; }
+  90% { transform: translateY(-40px) translateX(-12px) scale(1.1) rotate(540deg); opacity: 0.6; }
+  100% { transform: translateY(0) translateX(0) scale(1) rotate(630deg); opacity: 0.5; }
+} 
+
+/* Responsive adjustments - Even More Subtle */
+@media (max-width: 768px) {
+  .glitter {
+    width: 1.5px;
+    height: 1.5px;
+    opacity: 0.3;
+  }
+  
+  .purple-sparkle {
+    width: 2px;
+    height: 2px;
+    opacity: 0.2;
+  }
+  
+  .energy-orb {
+    width: 15px;
+    height: 15px;
+    opacity: 0.3;
+  }
+  
+  .crystal {
+    width: 8px;
+    height: 12px;
+    opacity: 0.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .glitter {
+    width: 1px;
+    height: 1px;
+    opacity: 0.25;
+  }
+  
+  .purple-sparkle {
+    width: 1.5px;
+    height: 1.5px;
+    opacity: 0.15;
+  }
+  
+  .energy-orb {
+    width: 12px;
+    height: 12px;
+    opacity: 0.25;
+  }
+  
+  .crystal {
+    width: 6px;
+    height: 10px;
+    opacity: 0.35;
+  }
+} 
