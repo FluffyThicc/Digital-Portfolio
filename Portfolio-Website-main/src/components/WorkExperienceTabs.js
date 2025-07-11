@@ -206,6 +206,8 @@ export default function WorkExperienceTabs() {
     capcut: ['#4A90E2', '#fff', 'rgba(74,144,226,0.3)', 'rgba(255,255,255,0.2)'],
   };
 
+  const [enlargedImg, setEnlargedImg] = useState(null);
+
   return (
     <section className="workexp-tabs-section">
       <div
@@ -250,19 +252,36 @@ export default function WorkExperienceTabs() {
               const imgStyle = idx < 2
                 ? {maxWidth: '600px', maxHeight: '320px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #50b4ff33, 0 0 0 2px #50b4ff22', margin: '0 0 0 32px', display: 'block'}
                 : {maxWidth: '600px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #50b4ff33, 0 0 0 2px #50b4ff22', margin: '0 0 0 32px', display: 'block'};
-              if (idx === 1) {
-                // Swap image and text for the second frame and add more left margin to text
+              // For the first two steps of the Thumbnail Designer experience:
+              if (exp.key === 'thumbnail' && (idx === 0 || idx === 1)) {
                 return (
-                  <div key={idx} ref={roadmapRefs.current[idx]} className={`workexp-roadmap-step with-img-large full-width${inViews[idx] ? ' animate' : ''}`} style={{position: 'relative', overflow: 'hidden', flexDirection: 'row-reverse', display: 'flex'}}> 
+                  <div key={idx} ref={roadmapRefs.current[idx]} className={`workexp-roadmap-step with-img-large full-width${inViews[idx] ? ' animate' : ''}`} style={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', position: 'relative', overflow: 'hidden'}}> 
                     <AboutMeParticles numParticles={38} />
                     <div className="workexp-roadmap-dot-col">
                       <div className="workexp-roadmap-dot" style={{ background: stopColor, boxShadow: `0 0 16px 4px ${stopColor}88` }} />
                       <div className="workexp-roadmap-vert-line" />
                     </div>
-                    <div className="workexp-roadmap-img-right-large" style={{marginLeft: 0, marginRight: '32px'}}>
-                      <img src={step.img} alt={step.title} style={imgStyle} />
+                    <div className="workexp-roadmap-img-right-large" style={{width: '500px', flex: '0 0 500px', marginRight: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                      <div style={{position: 'relative', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                        <img
+                          src={step.img}
+                          alt={step.title}
+                          style={{width: '100%', height: 'auto', maxWidth: '100%', maxHeight: '340px', display: 'block', borderRadius: '18px', boxShadow: imgStyle.boxShadow, margin: 0}}
+                          className="enlargeable-img"
+                          onClick={() => setEnlargedImg(step.img)}
+                        />
+                        <span
+                          className="corner-magnifier"
+                          title="Enlarge image"
+                          onClick={() => setEnlargedImg(step.img)}
+                          style={{position: 'absolute', top: 12, right: 12, background: 'rgba(30,30,50,0.85)', borderRadius: '50%', width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, color: '#fff', boxShadow: '0 2px 8px #0008', cursor: 'zoom-in', zIndex: 2, border: '2px solid #fff'}}
+                          aria-label="Enlarge image"
+                        >
+                          🔍
+                        </span>
+                      </div>
                     </div>
-                    <div className="workexp-roadmap-content-large" style={{marginLeft: '64px'}}>
+                    <div className="workexp-roadmap-content-large" style={{flex: '1 1 0', minWidth: 0, marginLeft: '72px'}}>
                       <div style={{color: '#a9a9ff', fontWeight: 600, fontSize: '1.1rem', marginBottom: 4}}>{step.date}</div>
                       <div className="workexp-roadmap-title-large" style={{marginBottom: 8}}>{step.title}</div>
                       <div style={{fontWeight: 600, color: '#bbaaff', fontSize: '1.1rem', marginBottom: 12}}>{step.subtitle}</div>
@@ -288,7 +307,24 @@ export default function WorkExperienceTabs() {
                     </div>
                   </div>
                   <div className="workexp-roadmap-img-right-large">
-                    <img src={step.img} alt={step.title} style={imgStyle} />
+                    <div style={{position: 'relative', display: 'inline-block'}}>
+                      <img
+                        src={step.img}
+                        alt={step.title}
+                        style={imgStyle}
+                        className="enlargeable-img"
+                        onClick={() => setEnlargedImg(step.img)}
+                      />
+                      <span
+                        className="corner-magnifier"
+                        title="Enlarge image"
+                        onClick={() => setEnlargedImg(step.img)}
+                        style={{position: 'absolute', top: 12, right: 12, background: 'rgba(30,30,50,0.85)', borderRadius: '50%', width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, color: '#fff', boxShadow: '0 2px 8px #0008', cursor: 'zoom-in', zIndex: 2, border: '2px solid #fff'}}
+                        aria-label="Enlarge image"
+                      >
+                        🔍
+                      </span>
+                    </div>
                   </div>
                 </div>
               );
@@ -309,7 +345,24 @@ export default function WorkExperienceTabs() {
                       <div className="workexp-roadmap-vert-line" />
                     </div>
                     <div className="workexp-roadmap-img-right-large" style={{marginLeft: 0, marginRight: '32px'}}>
-                      <img src={step.img} alt={step.title} style={imgStyle} />
+                      <div style={{position: 'relative', display: 'inline-block'}}>
+                        <img
+                          src={step.img}
+                          alt={step.title}
+                          style={imgStyle}
+                          className="enlargeable-img"
+                          onClick={() => setEnlargedImg(step.img)}
+                        />
+                        <span
+                          className="corner-magnifier"
+                          title="Enlarge image"
+                          onClick={() => setEnlargedImg(step.img)}
+                          style={{position: 'absolute', top: 12, right: 12, background: 'rgba(30,30,50,0.85)', borderRadius: '50%', width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, color: '#fff', boxShadow: '0 2px 8px #0008', cursor: 'zoom-in', zIndex: 2, border: '2px solid #fff'}}
+                          aria-label="Enlarge image"
+                        >
+                          🔍
+                        </span>
+                      </div>
                     </div>
                     <div className="workexp-roadmap-content-large" style={{marginLeft: '64px'}}>
                       <div style={{color: '#a9a9ff', fontWeight: 600, fontSize: '1.1rem', marginBottom: 4}}>{step.date}</div>
@@ -338,7 +391,24 @@ export default function WorkExperienceTabs() {
                     }
                   </div>
                   <div className="workexp-roadmap-img-right-large">
-                    <img src={step.img} alt={step.title} style={imgStyle} />
+                    <div style={{position: 'relative', display: 'inline-block'}}>
+                      <img
+                        src={step.img}
+                        alt={step.title}
+                        style={imgStyle}
+                        className="enlargeable-img"
+                        onClick={() => setEnlargedImg(step.img)}
+                      />
+                      <span
+                        className="corner-magnifier"
+                        title="Enlarge image"
+                        onClick={() => setEnlargedImg(step.img)}
+                        style={{position: 'absolute', top: 12, right: 12, background: 'rgba(30,30,50,0.85)', borderRadius: '50%', width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, color: '#fff', boxShadow: '0 2px 8px #0008', cursor: 'zoom-in', zIndex: 2, border: '2px solid #fff'}}
+                        aria-label="Enlarge image"
+                      >
+                        🔍
+                      </span>
+                    </div>
                   </div>
                 </div>
               );
@@ -359,7 +429,24 @@ export default function WorkExperienceTabs() {
                       <div className="workexp-roadmap-vert-line" />
                     </div>
                     <div className="workexp-roadmap-img-right-large" style={{marginLeft: 0, marginRight: '32px'}}>
-                      <img src={step.img} alt={step.title} style={imgStyle} />
+                      <div style={{position: 'relative', display: 'inline-block'}}>
+                        <img
+                          src={step.img}
+                          alt={step.title}
+                          style={imgStyle}
+                          className="enlargeable-img"
+                          onClick={() => setEnlargedImg(step.img)}
+                        />
+                        <span
+                          className="corner-magnifier"
+                          title="Enlarge image"
+                          onClick={() => setEnlargedImg(step.img)}
+                          style={{position: 'absolute', top: 12, right: 12, background: 'rgba(30,30,50,0.85)', borderRadius: '50%', width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, color: '#fff', boxShadow: '0 2px 8px #0008', cursor: 'zoom-in', zIndex: 2, border: '2px solid #fff'}}
+                          aria-label="Enlarge image"
+                        >
+                          🔍
+                        </span>
+                      </div>
                     </div>
                     <div className="workexp-roadmap-content-large" style={{marginLeft: '64px'}}>
                       <div style={{color: '#a9a9ff', fontWeight: 600, fontSize: '1.1rem', marginBottom: 4}}>{step.date}</div>
@@ -388,7 +475,24 @@ export default function WorkExperienceTabs() {
                     }
                   </div>
                   <div className="workexp-roadmap-img-right-large">
-                    <img src={step.img} alt={step.title} style={imgStyle} />
+                    <div style={{position: 'relative', display: 'inline-block'}}>
+                      <img
+                        src={step.img}
+                        alt={step.title}
+                        style={imgStyle}
+                        className="enlargeable-img"
+                        onClick={() => setEnlargedImg(step.img)}
+                      />
+                      <span
+                        className="corner-magnifier"
+                        title="Enlarge image"
+                        onClick={() => setEnlargedImg(step.img)}
+                        style={{position: 'absolute', top: 12, right: 12, background: 'rgba(30,30,50,0.85)', borderRadius: '50%', width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, color: '#fff', boxShadow: '0 2px 8px #0008', cursor: 'zoom-in', zIndex: 2, border: '2px solid #fff'}}
+                        aria-label="Enlarge image"
+                      >
+                        🔍
+                      </span>
+                    </div>
                   </div>
                 </div>
               );
@@ -414,7 +518,24 @@ export default function WorkExperienceTabs() {
                         </div>
                       </div>
                       <div className="workexp-roadmap-img-right-large">
-                        <img src={miniMartImg} alt="Mini Mart" style={{maxWidth: '600px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #7B61FF33, 0 0 0 2px #7B61FF22', margin: '0 0 0 32px', display: 'block'}} />
+                        <div style={{position: 'relative', display: 'inline-block'}}>
+                          <img
+                            src={miniMartImg}
+                            alt="Mini Mart"
+                            style={{maxWidth: '600px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #7B61FF33, 0 0 0 2px #7B61FF22', margin: '0 0 0 32px', display: 'block'}}
+                            className="enlargeable-img"
+                            onClick={() => setEnlargedImg(miniMartImg)}
+                          />
+                          <span
+                            className="corner-magnifier"
+                            title="Enlarge image"
+                            onClick={() => setEnlargedImg(miniMartImg)}
+                            style={{position: 'absolute', top: 12, right: 12, background: 'rgba(30,30,50,0.85)', borderRadius: '50%', width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, color: '#fff', boxShadow: '0 2px 8px #0008', cursor: 'zoom-in', zIndex: 2, border: '2px solid #fff'}}
+                            aria-label="Enlarge image"
+                          >
+                            🔍
+                          </span>
+                        </div>
                       </div>
                     </div>
                   );
@@ -429,7 +550,24 @@ export default function WorkExperienceTabs() {
                         {exp.story.length > 1 && <div className="workexp-roadmap-vert-line" />}
                       </div>
                       <div className="workexp-roadmap-img-left-large">
-                        <img src={process.env.PUBLIC_URL + "/img/inventory-screenshot.png"} alt="Inventory Management" style={{maxWidth: '500px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #7B61FF33, 0 0 0 2px #7B61FF22', margin: '0 32px 0 0', display: 'block'}} />
+                        <div style={{position: 'relative', display: 'inline-block'}}>
+                          <img
+                            src={process.env.PUBLIC_URL + "/img/inventory-screenshot.png"}
+                            alt="Inventory Management"
+                            style={{maxWidth: '500px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #7B61FF33, 0 0 0 2px #7B61FF22', margin: '0 32px 0 0', display: 'block'}}
+                            className="enlargeable-img"
+                            onClick={() => setEnlargedImg(process.env.PUBLIC_URL + "/img/inventory-screenshot.png")}
+                          />
+                          <span
+                            className="corner-magnifier"
+                            title="Enlarge image"
+                            onClick={() => setEnlargedImg(process.env.PUBLIC_URL + "/img/inventory-screenshot.png")}
+                            style={{position: 'absolute', top: 12, right: 12, background: 'rgba(30,30,50,0.85)', borderRadius: '50%', width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, color: '#fff', boxShadow: '0 2px 8px #0008', cursor: 'zoom-in', zIndex: 2, border: '2px solid #fff'}}
+                            aria-label="Enlarge image"
+                          >
+                            🔍
+                          </span>
+                        </div>
                       </div>
                       <div className="workexp-roadmap-content-large">
                         <div style={{color: '#a9a9ff', fontWeight: 700, fontSize: '1.2rem', marginBottom: 8}}>Core Skills Gained</div>
@@ -462,7 +600,24 @@ export default function WorkExperienceTabs() {
                         </div>
                       </div>
                       <div className="workexp-roadmap-img-right-large">
-                        <img src={process.env.PUBLIC_URL + "/img/inventory-management-3rdframe.png"} alt="Inventory Management 3rd Frame" style={{maxWidth: '500px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #7B61FF33, 0 0 0 2px #7B61FF22', margin: '0 0 0 32px', display: 'block'}} />
+                        <div style={{position: 'relative', display: 'inline-block'}}>
+                          <img
+                            src={process.env.PUBLIC_URL + "/img/inventory-management-3rdframe.png"}
+                            alt="Inventory Management 3rd Frame"
+                            style={{maxWidth: '500px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #7B61FF33, 0 0 0 2px #7B61FF22', margin: '0 0 0 32px', display: 'block'}}
+                            className="enlargeable-img"
+                            onClick={() => setEnlargedImg(process.env.PUBLIC_URL + "/img/inventory-management-3rdframe.png")}
+                          />
+                          <span
+                            className="corner-magnifier"
+                            title="Enlarge image"
+                            onClick={() => setEnlargedImg(process.env.PUBLIC_URL + "/img/inventory-management-3rdframe.png")}
+                            style={{position: 'absolute', top: 12, right: 12, background: 'rgba(30,30,50,0.85)', borderRadius: '50%', width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, color: '#fff', boxShadow: '0 2px 8px #0008', cursor: 'zoom-in', zIndex: 2, border: '2px solid #fff'}}
+                            aria-label="Enlarge image"
+                          >
+                            🔍
+                          </span>
+                        </div>
                       </div>
                     </div>
                   );
@@ -500,13 +655,38 @@ export default function WorkExperienceTabs() {
                   {/* Show the screenshot image after the second step for restocker */}
                   {exp.key === 'restocker' && idx === 1 && (
                     <div className="workexp-roadmap-img-screenshot">
-                      <img src={process.env.PUBLIC_URL + "/img/inventory-screenshot.png"} alt="Inventory Role Screenshot" style={{maxWidth: '400px', width: '100%', height: 'auto', borderRadius: '12px', margin: '24px auto', boxShadow: '0 4px 32px #7B61FF33', display: 'block'}} />
+                      <div style={{position: 'relative', display: 'inline-block'}}>
+                        <img
+                          src={process.env.PUBLIC_URL + "/img/inventory-screenshot.png"}
+                          alt="Inventory Role Screenshot"
+                          style={{maxWidth: '400px', width: '100%', height: 'auto', borderRadius: '12px', margin: '24px auto', boxShadow: '0 4px 32px #7B61FF33', display: 'block'}}
+                          className="enlargeable-img"
+                          onClick={() => setEnlargedImg(process.env.PUBLIC_URL + "/img/inventory-screenshot.png")}
+                        />
+                        <span
+                          className="corner-magnifier"
+                          title="Enlarge image"
+                          onClick={() => setEnlargedImg(process.env.PUBLIC_URL + "/img/inventory-screenshot.png")}
+                          style={{position: 'absolute', top: 12, right: 12, background: 'rgba(30,30,50,0.85)', borderRadius: '50%', width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, color: '#fff', boxShadow: '0 2px 8px #0008', cursor: 'zoom-in', zIndex: 2, border: '2px solid #fff'}}
+                          aria-label="Enlarge image"
+                        >
+                          🔍
+                        </span>
+                      </div>
                     </div>
                   )}
                 </React.Fragment>
               );
             })}
       </div>
+      {enlargedImg && (
+        <div className="enlarge-modal-overlay" onClick={() => setEnlargedImg(null)}>
+          <div className="enlarge-modal" onClick={e => e.stopPropagation()}>
+            <button className="enlarge-modal-close" onClick={() => setEnlargedImg(null)}>&times;</button>
+            <img src={enlargedImg} alt="Enlarged work experience" className="enlarge-modal-img" />
+          </div>
+        </div>
+      )}
       <style>{`
         .workexp-tabs-section {
           position: relative;
@@ -932,6 +1112,67 @@ export default function WorkExperienceTabs() {
             flex-direction: column;
             align-items: stretch;
           }
+        }
+        .corner-magnifier {
+          transition: background 0.2s, box-shadow 0.2s;
+        }
+        .corner-magnifier:hover {
+          background: #7B61FF;
+          color: #fff;
+          box-shadow: 0 0 12px #7B61FF, 0 2px 8px #0008;
+        }
+        .enlargeable-img {
+          cursor: zoom-in;
+          transition: transform 0.3s ease-in-out;
+        }
+        .enlargeable-img:hover {
+          transform: scale(1.05);
+        }
+        .enlarge-modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.9);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1000;
+        }
+        .enlarge-modal {
+          position: relative;
+          max-width: 90%;
+          max-height: 90%;
+          background: #fff;
+          border-radius: 10px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        .enlarge-modal-close {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background: none;
+          border: none;
+          font-size: 2.5rem;
+          color: #fff;
+          cursor: pointer;
+          z-index: 11;
+          transition: color 0.3s;
+        }
+        .enlarge-modal-close:hover {
+          color: #7B61FF;
+        }
+        .enlarge-modal-img {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+          border-radius: 8px;
         }
       `}</style>
     </section>
