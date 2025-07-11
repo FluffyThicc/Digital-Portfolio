@@ -2,6 +2,7 @@ import React from 'react';
 import { FaStar, FaUsers, FaMagic, FaCommentDots } from 'react-icons/fa';
 import AboutMeParticles from './AboutMeParticles';
 import youtubeThumbnail from '../assets/img/youtube-thumbnail-example.png';
+import faceImg from '../assets/img/eami-l023.jpg';
 
 const aboutCards = [
   {
@@ -47,6 +48,9 @@ export default function AboutMe() {
         <p className="aboutme-desc refined-desc">
           I design clean, responsive web and mobile interfaces using tools like Figma, Sketch, and Adobe XD – with experience in both solo and team-based projects.
         </p>
+        <div className="aboutme-profile-img-wrapper" style={{display: 'flex', justifyContent: 'center', marginBottom: 32}}>
+          <img src={faceImg} alt="Phay Jun Hong" className="aboutme-profile-img" style={{width: 160, height: 160, borderRadius: '50%', objectFit: 'cover', boxShadow: '0 4px 32px #7B61FF88, 0 0 0 4px #fff8'}} />
+        </div>
         <div className="aboutme-cards-row refined-cards-row">
           {aboutCards.map((card, idx) => (
             <div className="aboutme-card refined-card" key={idx}>

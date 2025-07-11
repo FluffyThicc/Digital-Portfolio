@@ -56,7 +56,7 @@ const experiences = [
         title: 'Possibilities & Value',
         date: '1st June 2022',
         subtitle: 'Freelance | 4 Months',
-        desc: 'Ready to apply creative impact—translating thumbnail design skills to UX, I focus on attention-grabbing visuals, user clarity, and brand consistency to help digital products stand out and connect with audiences.<br/><b>💬 Let’s collaborate to create digital experiences that get noticed and drive results!</b>',
+        desc: 'Ready to apply creative impact—translating thumbnail design skills to UX, I focus on attention-grabbing visuals, user clarity, and brand consistency to help digital products stand out and connect with audiences.\n\n💬 Let’s collaborate to create digital experiences that get noticed and drive results!',
         img: process.env.PUBLIC_URL + '/img/thumbnail-mlbb-3.jpg',
       },
     ],
@@ -131,6 +131,14 @@ const experiences = [
   },
 ];
 
+// Add a color map for each experience
+const experienceColors = {
+  restocker: '#FFD600', // gold/yellow
+  thumbnail: '#A259FF', // purple
+  video: '#50E3C2',     // cyan
+  capcut: '#4A90E2',    // blue
+};
+
 export default function WorkExperienceTabs() {
   const [selected, setSelected] = useState(experiences[0].key);
   const exp = experiences.find(e => e.key === selected);
@@ -185,16 +193,33 @@ export default function WorkExperienceTabs() {
     // eslint-disable-next-line
   }, [selected]);
 
-  const stopColors = ['#4A90E2', '#50E3C2', '#A259FF', '#FFD600'];
-
   // Add a blue particles component for the thumbnail section
   function BlueParticles(props) {
     return <AboutMeParticles {...props} particleColors={['rgba(80,180,255,0.7)','rgba(255,255,255,0.8)','rgba(80,180,255,0.4)','rgba(255,255,255,0.5)']} />;
   }
 
+  // Particle color map for each experience
+  const experienceParticles = {
+    restocker: ['#FFD600', '#fff', 'rgba(255,214,0,0.3)', 'rgba(255,255,255,0.2)'],
+    thumbnail: ['#A259FF', '#fff', 'rgba(162,89,255,0.3)', 'rgba(255,255,255,0.2)'],
+    video: ['#50E3C2', '#fff', 'rgba(80,227,194,0.3)', 'rgba(255,255,255,0.2)'],
+    capcut: ['#4A90E2', '#fff', 'rgba(74,144,226,0.3)', 'rgba(255,255,255,0.2)'],
+  };
+
   return (
     <section className="workexp-tabs-section">
-      <div className="workexp-tabs-bg" />
+      <div
+        className="workexp-tabs-bg"
+        style={{
+          background: `radial-gradient(ellipse at 60% 0%, ${experienceColors[selected]}22 0%, transparent 70%), radial-gradient(ellipse at 20% 80%, #fff2 0%, transparent 80%)`,
+          transition: 'background 0.5s',
+        }}
+      />
+      <AboutMeParticles
+        numParticles={60}
+        particleColors={experienceParticles[selected]}
+        style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none'}}
+      />
       <h2 className="workexp-tabs-title">Relevant Work Experience</h2>
       <div className="workexp-tabs-row">
         {experiences.map(e => (
@@ -203,6 +228,12 @@ export default function WorkExperienceTabs() {
             className={`workexp-tab-card${selected === e.key ? ' selected' : ''}`}
             onClick={() => setSelected(e.key)}
             aria-pressed={selected === e.key}
+            style={{
+              boxShadow: selected === e.key ? `0 0 24px 4px ${experienceColors[e.key]}88, 0 0 0 2px ${experienceColors[e.key]}55` : undefined,
+              borderColor: selected === e.key ? experienceColors[e.key] : undefined,
+              color: selected === e.key ? experienceColors[e.key] : undefined,
+              transition: 'box-shadow 0.2s, border-color 0.2s, color 0.2s',
+            }}
           >
             <span className="workexp-tab-icon">{e.icon}</span>
             <span className="workexp-tab-title">{e.title}</span>
@@ -214,7 +245,7 @@ export default function WorkExperienceTabs() {
       <div className="workexp-roadmap">
         {exp.key === 'thumbnail'
           ? exp.story && exp.story.map((step, idx) => {
-              const stopColor = stopColors[idx % stopColors.length];
+              const stopColor = experienceColors[exp.key];
               // Set a smaller maxHeight for the first and second frames
               const imgStyle = idx < 2
                 ? {maxWidth: '600px', maxHeight: '320px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #50b4ff33, 0 0 0 2px #50b4ff22', margin: '0 0 0 32px', display: 'block'}
@@ -264,7 +295,7 @@ export default function WorkExperienceTabs() {
             })
           : exp.key === 'video'
           ? exp.story && exp.story.map((step, idx) => {
-              const stopColor = stopColors[idx % stopColors.length];
+              const stopColor = experienceColors[exp.key];
               const imgStyle = idx < 2
                 ? {maxWidth: '600px', maxHeight: '320px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #50b4ff33, 0 0 0 2px #50b4ff22', margin: '0 0 0 32px', display: 'block'}
                 : {maxWidth: '600px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #50b4ff33, 0 0 0 2px #50b4ff22', margin: '0 0 0 32px', display: 'block'};
@@ -314,7 +345,7 @@ export default function WorkExperienceTabs() {
             })
           : exp.key === 'capcut'
           ? exp.story && exp.story.map((step, idx) => {
-              const stopColor = stopColors[idx % stopColors.length];
+              const stopColor = experienceColors[exp.key];
               const imgStyle = idx < 2
                 ? {maxWidth: '600px', maxHeight: '320px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #50b4ff33, 0 0 0 2px #50b4ff22', margin: '0 0 0 32px', display: 'block'}
                 : {maxWidth: '600px', width: '100%', height: 'auto', borderRadius: '18px', boxShadow: '0 8px 48px #50b4ff33, 0 0 0 2px #50b4ff22', margin: '0 0 0 32px', display: 'block'};
@@ -363,7 +394,7 @@ export default function WorkExperienceTabs() {
               );
             })
           : exp.story && exp.story.map((step, idx) => {
-              const stopColor = stopColors[idx % stopColors.length];
+              const stopColor = experienceColors[exp.key];
               if (exp.key === 'restocker') {
                 // First frame: miniMartImg right, text left, large image
                 if (idx === 0) {

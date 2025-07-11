@@ -27,6 +27,7 @@ const NavBar = () => {
     { id: 'home', label: 'Home', path: '/' },
     { id: 'experience', label: 'Experience', path: '/experience' },
     { id: 'projects', label: 'Projects', path: '/projects' },
+    { id: 'skills', label: '🪐 Skills', path: '/skills' },
     { id: 'contact', label: 'Contact', path: '/contact' }
   ];
 

@@ -850,37 +850,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #121212;
   opacity: 0.8;
 }
-.contact form button {
-  font-weight: 700;
-  color: #000;
-  background-color: #fff;
-  padding: 14px 48px;
-  font-size: 18px;
-  margin-top: 25px;
-  border-radius: 0;
-  position: relative;
-  transition: 0.3s ease-in-out;
-}
-.contact form button span {
-  z-index: 1;
-  position: relative;
-}
-.contact form button:hover {
-  color: #fff;
-}
-.contact form button::before {
-  content: "";
-  background: #121212;
-  width: 0;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  transition: 0.3s ease-in-out;
-}
-.contact form button:hover::before {
-  width: 100%;
+.contact form button, .contact form button:hover, .contact form button:focus {
+  background: unset !important;
+  background-color: unset !important;
+  color: unset !important;
+  box-shadow: unset !important;
+  border: unset !important;
 }
 
 /************ Footer Css ************/
@@ -994,7 +969,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .galaxy-btn:hover {
   background: #50E3C2 !important;
   color: #fff !important;
-  box-shadow: 0 0 16px #7B61FF88, 0 0 32px #50E3C288 !important;
+  box-shadow: 0 0 24px #50E3C2cc, 0 0 0 4px #7B61FFcc !important;
 }
 
 /* --- Galaxy Projects Section: Wider, Spaced, Cosmic --- */

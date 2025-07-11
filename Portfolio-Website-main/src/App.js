@@ -9,6 +9,7 @@ import Experience from "./pages/Experience";
 import ProjectsPage from "./pages/Projects";
 import ContactPage from "./pages/Contact";
 import VideoIntro from "./components/VideoIntro";
+import Skills from "./pages/Skills";
 
 // This helps with debugging the video path
 console.log('Base URL:', process.env.PUBLIC_URL);
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/skills" element={<Skills />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
       {showVideoIntro && <VideoIntro onComplete={handleVideoComplete} />}

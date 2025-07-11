@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AboutMeParticles from "./AboutMeParticles";
 import { FaEnvelope, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
+import faceImg from '../assets/img/eami-l023.jpg';
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -15,6 +16,8 @@ export const Contact = () => {
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState('Send');
   const [status, setStatus] = useState({});
+  const [isGlowing, setIsGlowing] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const onFormUpdate = (category, value) => {
     setFormDetails({
@@ -23,24 +26,20 @@ export const Contact = () => {
     })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setButtonText("Sending...");
-    let response = await fetch("http://localhost:5000/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(formDetails),
-    });
-    setButtonText("Send");
-    let result = await response.json();
-    setFormDetails(formInitialDetails);
-    if (result.code == 200) {
-      setStatus({ succes: true, message: 'Message sent successfully'});
-    } else {
-      setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
-    }
+    setIsGlowing(true);
+    setTimeout(() => setIsGlowing(false), 1200);
+    const subject = encodeURIComponent(formDetails.subject || 'Contact Form Submission');
+    const body = encodeURIComponent(
+      `Name: ${formDetails.name}\n` +
+      `Email: ${formDetails.email}\n` +
+      `Company: ${formDetails.company}\n` +
+      `Company Size: ${formDetails.companySize}\n` +
+      `Job Title: ${formDetails.jobTitle}\n` +
+      `Message: ${formDetails.message}`
+    );
+    window.location.href = `mailto:phayjunhong@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -48,16 +47,24 @@ export const Contact = () => {
       <AboutMeParticles numParticles={60} particleColors={['#fff','rgba(123,97,255,0.8)','rgba(80,180,255,0.7)','rgba(80,227,194,0.7)','rgba(255,255,255,0.8)','rgba(255,255,255,0.5)','#7B61FF','#4A90E2']} />
       <div className="galaxy-contact-container">
         <div className="galaxy-contact-left">
-          <h2 className="galaxy-contact-title">Contact Me Today!</h2>
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: 18, margin: '0 0 24px 5px'}}>
+            <div className="galaxy-contact-profile-img-wrapper" style={{display: 'flex', justifyContent: 'center'}}>
+              <img src={faceImg} alt="Phay Jun Hong" className="galaxy-contact-profile-img" style={{width: 120, height: 120, borderRadius: '50%', objectFit: 'cover', boxShadow: '0 4px 32px #7B61FF88, 0 0 0 4px #fff8', marginRight: 28}} />
+            </div>
+            <h2 className="galaxy-contact-title" style={{margin: 0, whiteSpace: 'nowrap'}}>Contact Me</h2>
+          </div>
           <div className="galaxy-contact-subtitle">Let’s connect and create something amazing together. 🚀</div>
           <div className="galaxy-divider" />
           <p className="galaxy-contact-desc">
-            I’d love to hear from you! Whether you’re hiring, looking to collaborate, or just want to chat about design — let’s connect and create something amazing together.
+            Ready to apply creative impact—translating thumbnail design skills to UX, I focus on attention-grabbing visuals, user clarity, and brand consistency to help digital products stand out and connect with audiences.
+            <span style={{ display: 'block', marginTop: 12, fontWeight: 700, color: '#FFD600', fontSize: '1.08em' }}>
+              💬 Let’s collaborate to create digital experiences that get noticed and drive results!
+            </span>
           </p>
-          <div className="galaxy-contact-info">
-            <div><FaEnvelope className="galaxy-icon" /> <a href="mailto:phayjunhong@gmail.com">phayjunhong@gmail.com</a></div>
-            <div><FaLinkedin className="galaxy-icon" /> <a href="https://www.linkedin.com/in/phay-jun-hong-47750b351/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></div>
-            <div style={{marginTop: '32px'}}><FaMapMarkerAlt className="galaxy-icon" /> Singapore</div>
+          <div className="galaxy-contact-info" style={{marginTop: 32, display: 'flex', flexDirection: 'column', gap: 18}}>
+            <div style={{display: 'flex', alignItems: 'center', gap: 10}}><FaEnvelope className="galaxy-icon" /> <a href="mailto:phayjunhong@gmail.com">phayjunhong@gmail.com</a></div>
+            <div style={{display: 'flex', alignItems: 'center', gap: 10}}><FaLinkedin className="galaxy-icon" /> <a href="https://www.linkedin.com/in/phay-jun-hong-47750b351/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></div>
+            <div style={{display: 'flex', alignItems: 'center', gap: 10, marginTop: 8}}><FaMapMarkerAlt className="galaxy-icon" /> Singapore</div>
           </div>
         </div>
         <div className="galaxy-contact-right">
@@ -109,8 +116,36 @@ export const Contact = () => {
                 <label>How can we help?</label>
                 <textarea rows="5" value={formDetails.message} placeholder="Enter your message..." onChange={(e) => onFormUpdate('message', e.target.value)} required></textarea>
               </div>
-              <button type="submit" className="galaxy-btn" style={{marginTop: 18}}>
-                {buttonText}
+              <button
+                type="submit"
+                className="galaxy-btn"
+                style={{
+                  marginTop: 18,
+                  background: isGlowing ? '#50E3C2' : '#7B61FF',
+                  color: '#fff',
+                  border: 'none',
+                  boxShadow: isGlowing ? '0 0 32px 8px #50E3C2, 0 0 0 6px #7B61FF' : (isHovered ? '0 0 24px #50E3C2cc, 0 0 0 4px #7B61FFcc' : 'none'),
+                  transition: 'background 0.2s, box-shadow 0.2s, transform 0.15s',
+                  borderRadius: 32,
+                  fontWeight: 700,
+                  fontSize: '1.2rem',
+                  padding: '16px 48px',
+                  width: '100%',
+                  cursor: 'pointer',
+                  outline: 'none',
+                  appearance: 'none',
+                  display: 'block',
+                  letterSpacing: 1.2,
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transform: isGlowing ? 'scale(1.04)' : (isHovered ? 'scale(1.02)' : 'scale(1)')
+                }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <span role="img" aria-label="rocket" style={{marginRight: 8}}>🚀</span>
+                {isGlowing ? 'Sending' : buttonText}
+                {isGlowing && <span role="img" aria-label="sparkles" style={{marginLeft: 8, fontSize: 22}}>✨</span>}
               </button>
               {status.message && (
                 <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
@@ -325,6 +360,21 @@ export const Contact = () => {
             flex-direction: column;
             gap: 0.5rem;
           }
+        }
+        .galaxy-btn:hover, .galaxy-form button:hover, button.galaxy-btn:hover {
+          background: #50E3C2 !important;
+          color: #fff !important;
+          box-shadow: 0 0 24px #50E3C2cc, 0 0 0 4px #7B61FFcc !important;
+          border: none !important;
+        }
+        .galaxy-form input, .galaxy-form select, .galaxy-form textarea {
+          padding: 4px 8px !important;
+          min-height: 28px !important;
+          font-size: 1rem !important;
+          border-radius: 8px !important;
+        }
+        .galaxy-form textarea {
+          min-height: 48px !important;
         }
       `}</style>
     </section>
