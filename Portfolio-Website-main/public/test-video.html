@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        video {
+            width: 100%;
+            height: auto;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success { background: #28a745; }
+        .error { background: #dc3545; }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <h1>Video Test</h1>
+        <div id="status" class="status">Testing video...</div>
+        
+        <video id="testVideo" controls muted>
+            <source src="/videos/Lightning.mp4" type="video/mp4">
+            <source src="./videos/Lightning.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div style="margin-top: 20px;">
+            <button onclick="testPlay()">Test Play</button>
+            <button onclick="testAutoplay()">Test Autoplay</button>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('testVideo');
+        const status = document.getElementById('status');
+        
+        function updateStatus(message, type = 'success') {
+            status.textContent = message;
+            status.className = `status ${type}`;
+        }
+        
+        video.addEventListener('loadeddata', () => {
+            updateStatus('Video loaded successfully! Duration: ' + video.duration + 's');
+        });
+        
+        video.addEventListener('error', (e) => {
+            updateStatus('Video error: ' + e.message, 'error');
+        });
+        
+        video.addEventListener('play', () => {
+            updateStatus('Video started playing');
+        });
+        
+        async function testPlay() {
+            try {
+                await video.play();
+                updateStatus('Manual play successful');
+            } catch (error) {
+                updateStatus('Manual play failed: ' + error.message, 'error');
+            }
+        }
+        
+        async function testAutoplay() {
+            video.muted = true;
+            try {
+                await video.play();
+                updateStatus('Autoplay successful');
+            } catch (error) {
+                updateStatus('Autoplay failed: ' + error.message, 'error');
+            }
+        }
+        
+        // Test on load
+        video.addEventListener('loadstart', () => {
+            updateStatus('Video loading started...');
+        });
+    </script>
+</body>
+</html> 

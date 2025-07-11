@@ -4,6 +4,7 @@ import headerImg from "../assets/img/header-img.svg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { useNavigate } from 'react-router-dom';
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -11,8 +12,9 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "Web Developer", "Web Designer", "UI/UX Designer" ];
+  const toRotate = [ "UX Designer", "Digital Designer", "UI/UX Specialist" ];
   const period = 2000;
+  const navigate = useNavigate();
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -49,24 +51,25 @@ export const Banner = () => {
 
   return (
     <section className="banner" id="home">
+      <div className="banner-bg"></div>
       <Container>
         <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Shivansh`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                <span className="tagline">Welcome to My Design Portfolio</span>
+                <h1>{`Hi! I'm Phay Jun Hong`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "UX Designer", "Digital Designer", "UI/UX Specialist" ]'><span className="wrap">{text}</span></span></h1>
+                  <p>I specialize in UX design, with experience working across various digital tools and technologies. I'm passionate about creating intuitive and engaging user experiences that solve real problems.</p>
+                  <button onClick={() => navigate('/contact')}>Let's Connect <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={5}>
+          <Col xs={12} md={6} xl={5} className="banner-img">
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  <img src={headerImg} alt="Header Img"/>
+                  <img src={headerImg} alt="Header Img" className="img-fluid" />
                 </div>}
             </TrackVisibility>
           </Col>

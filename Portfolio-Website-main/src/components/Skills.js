@@ -6,6 +6,8 @@ import 'react-multi-carousel/lib/styles.css';
 import arrow1 from "../assets/img/arrow1.svg";
 import arrow2 from "../assets/img/arrow2.svg";
 import colorSharp from "../assets/img/color-sharp.png"
+import { DesignTools } from "./DesignTools";
+import AboutMeParticles from "./AboutMeParticles";
 
 export const Skills = () => {
   const responsive = {
@@ -29,36 +31,42 @@ export const Skills = () => {
   };
 
   return (
-    <section className="skill" id="skills">
-        <div className="container">
-            <div className="row">
-                <div className="col-12">
-                    <div className="skill-bx wow zoomIn">
-                        <h2>Skills</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br> Lorem Ipsum has been the industry's standard dummy text.</p>
-                        <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Web Development</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter2} alt="Image" />
-                                <h5>Brand Identity</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter3} alt="Image" />
-                                <h5>Logo Design</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Web Development</h5>
-                            </div>
-                        </Carousel>
-                    </div>
-                </div>
+    <section className="space-ux-section" id="skills">
+      <AboutMeParticles numParticles={48} />
+      <div className="container" style={{position: 'relative', zIndex: 1}}>
+        <div className="row">
+          <div className="col-12">
+            <div className="galaxy-frame">
+              <DesignTools />
             </div>
+          </div>
         </div>
-        <img className="background-image-left" src={colorSharp} alt="Image" />
+      </div>
+      <style>{`
+        .space-ux-section {
+          position: relative;
+          min-height: 100vh;
+          background: radial-gradient(ellipse at 60% 0%, #2a1850 0%, #0a0a23 100%);
+          color: #fff;
+          overflow: hidden;
+          padding-bottom: 0;
+        }
+        .galaxy-frame {
+          margin-top: 0;
+          border-radius: 32px;
+          padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+          position: relative;
+          z-index: 2;
+          max-width: 1100px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        @media (max-width: 900px) {
+          .galaxy-frame {
+            padding: 2rem 0.5rem 2rem 0.5rem;
+          }
+        }
+      `}</style>
     </section>
   )
 }
