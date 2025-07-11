@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Digital-Portfolio/static/css/main.32233177.css",
-    "main.js": "/Digital-Portfolio/static/js/main.c967f91c.js",
+    "main.js": "/Digital-Portfolio/static/js/main.5f965486.js",
     "static/js/453.15a9cb34.chunk.js": "/Digital-Portfolio/static/js/453.15a9cb34.chunk.js",
     "static/media/velvet-oasis-main-image.png": "/Digital-Portfolio/static/media/velvet-oasis-main-image.7e684cdd29f5f3a19c01.png",
     "static/media/mini-mart.png": "/Digital-Portfolio/static/media/mini-mart.58ba4542adc00303f097.png",
@@ -60,11 +60,11 @@
     "static/media/arrow2.svg": "/Digital-Portfolio/static/media/arrow2.b3d03e1b04ec1904a5658aea5776433c.svg",
     "static/media/arrow1.svg": "/Digital-Portfolio/static/media/arrow1.1088f8313e5637897aff2414e5938141.svg",
     "main.32233177.css.map": "/Digital-Portfolio/static/css/main.32233177.css.map",
-    "main.c967f91c.js.map": "/Digital-Portfolio/static/js/main.c967f91c.js.map",
+    "main.5f965486.js.map": "/Digital-Portfolio/static/js/main.5f965486.js.map",
     "453.15a9cb34.chunk.js.map": "/Digital-Portfolio/static/js/453.15a9cb34.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.32233177.css",
-    "static/js/main.c967f91c.js"
+    "static/js/main.5f965486.js"
   ]
 }
