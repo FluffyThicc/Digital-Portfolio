@@ -79,26 +79,53 @@ export const Projects = () => {
     deepsync: {
       color: '#B266FF',
       title: '💜 Designed 25+ Modern Figma ✨ Mockups for Students ✨',
-      desc1: 'Designed 25+ modern Figma mockups with a focus on intuitive navigation, clean aesthetics, and user-friendly layouts, tailored to meet the diverse needs of students across all educational levels.',
-      desc2: 'Showcased designs include the Home Page, Login Page, Membership Card Details, Timetable Generation Interface & Features, Research Pages, and Project Planner—each crafted to deliver a seamless and engaging user experience.'
+      desc1: 'Created 25+ Figma mockups focused on intuitive navigation, clean aesthetics, and user-friendly layouts for students.',
+      desc2: 'Showcased: Home, Login, Membership Cards, Timetable Generator, Research, and Project Planner—each crafted for a seamless student experience.'
     },
     savour: {
       color: '#50E3C2',
       title: '💚 Designed 15+ Modern Wireframes for E-Commerce 💚',
-      desc1: 'Designed 15+ modern wireframes with a focus on intuitive shopping flows, clean layouts, and user-friendly interactions, tailored to create seamless experiences for users on a sustainable e-commerce platform.',
-      desc2: 'Designed core e-commerce wireframes including product listings, search and filter functions, and error prevention features—focused on creating smooth, intuitive user journeys with clarity and confidence at every step.'
+      desc1: 'Built 15+ wireframes with intuitive shopping flows and user-friendly interactions for a sustainable e-commerce platform.',
+      desc2: 'Showcased: Product listings, search/filter, and error prevention—ensuring smooth, confident user journeys.'
     },
     axify: {
       color: '#FF69B4',
-      title: '💜 Designed over 50+ Desktop Mockups for the AI Marketplace Solution 💜',
-      desc1: 'Designed 50+ modern desktop mockups with streamlined buyer-seller flows, real-time communication features, and intuitive multilingual interfaces, tailored to create seamless transactions and meaningful connections in the AI-powered marketplace.',
-      desc2: 'Designed user-centric mockups for an AI marketplace featuring seamless cart and payment flows, real-time booking systems, and an interactive buyer-seller communication platform.\n\nAxify\'s Face-to-Face Communication: Designed an intuitive face-to-face communication interface with seamless video call integration to enable real-time, meaningful buyer-seller interactions.'
+      title: '💜 Designed 50+ Desktop Mockups for the AI Marketplace Solution 💜',
+      desc1: 'Designed 50+ desktop mockups with streamlined buyer-seller flows, real-time communication, and multilingual interfaces.',
+      desc2: 'Showcased: Cart/payment flows, booking systems, and interactive buyer-seller communication.'
     },
     velvetvet: {
       color: '#FFD600',
-      title: '💛 Designed over 40+ Desktop Mockups for the Hotel Resort Website 💛',
-      desc1: 'Designed over 40+ desktop mockups for the Hotel Resort website, focusing on elegant layouts, intuitive booking flows, and a luxurious user experience.',
-      desc2: 'Designed a fully interactive and functional website, including Home, About Us, Facilities, Rooms, and Checkout pages.'
+      title: '💛 Designed 40+ Desktop Mockups for the Hotel Resort Website 💛',
+      desc1: 'Created 40+ desktop mockups for a hotel resort, focusing on elegant layouts, intuitive booking, and a luxury experience.',
+      desc2: 'Showcased: Home, About, Facilities, Rooms, Checkout—plus engaging visuals and clear CTAs for seamless booking.'
+    }
+  };
+
+  const projectWhatYouSee = {
+    deepsync: {
+      title: 'Designed 25+ Modern Figma ✨ Mockups for Students ✨',
+      desc: 'Created 25+ Figma mockups for students, emphasizing intuitive navigation and clean, user-friendly layouts.',
+      showcaseTitle: '💜 Mockup Showcase 💜',
+      showcaseDesc: 'Home, Login, Membership Cards, Timetable Generator, Research, and Project Planner.'
+    },
+    savour: {
+      title: '✨ Designed 15+ Modern ✨ Wireframes for E-Commerce',
+      desc: 'Built 15+ wireframes for a sustainable e-commerce platform, focusing on smooth shopping flows and user clarity.',
+      showcaseTitle: '💚 Mockup Showcase 💚',
+      showcaseDesc: 'Product listings, search/filter, and error prevention features.'
+    },
+    axify: {
+      title: '✨ Designed 50+ Desktop Mockups for the AI Marketplace Solution',
+      desc: 'Designed 50+ desktop mockups for an AI marketplace with seamless buyer-seller flows and real-time communication.',
+      showcaseTitle: '💜 Mockup Showcase 💜',
+      showcaseDesc: 'Cart/payment flows, booking systems, and interactive communication platform.'
+    },
+    velvetvet: {
+      title: '✨ Designed 40+ Desktop Mockups for the Hotel Resort Website',
+      desc: 'Created 40+ desktop mockups for a hotel resort, focusing on elegant layouts and intuitive booking.',
+      showcaseTitle: '💛 Mockup Showcase 💛',
+      showcaseDesc: 'Home, About, Facilities, Rooms, Checkout, and engaging visuals for booking.'
     }
   };
 
@@ -273,33 +300,6 @@ export const Projects = () => {
         glowColor: '#FFD600'
       }
     ]
-  };
-
-  const projectWhatYouSee = {
-    deepsync: {
-      title: 'Designed 25+ Modern Figma ✨ Mockups for Students ✨',
-      desc: 'Designed 25+ modern Figma mockups with a focus on intuitive navigation, clean aesthetics, and user-friendly layouts, tailored to meet the diverse needs of students across all educational levels.',
-      showcaseTitle: '💜 Mockup Showcase 💜',
-      showcaseDesc: 'Showcased designs include the Home Page, Login Page, Membership Card Details, Timetable Generation Interface & Features, Research Pages, and Project Planner—each crafted to deliver a seamless and engaging user experience.'
-    },
-    savour: {
-      title: '✨ Designed 15+ Modern ✨ Wireframes for E-Commerce',
-      desc: 'Designed 15+ modern wireframes with a focus on intuitive shopping flows, clean layouts, and user-friendly interactions, tailored to create seamless experiences for users on a sustainable e-commerce platform.',
-      showcaseTitle: '💚 Mockup Showcase 💚',
-      showcaseDesc: 'Designed core e-commerce wireframes including product listings, search and filter functions, and error prevention features—focused on creating smooth, intuitive user journeys with clarity and confidence at every step.'
-    },
-    axify: {
-      title: '✨ Designed over 50+ ✨\nDesktop mockups for the AI Marketplace Solution',
-      desc: 'Designed 50+ modern desktop mockups with streamlined buyer-seller flows, real-time communication features, and intuitive multilingual interfaces, tailored to create seamless transactions and meaningful connections in the AI-powered marketplace.',
-      showcaseTitle: '💜 Mockup Showcase 💜',
-      showcaseDesc: 'Designed user-centric mockups for an AI marketplace featuring seamless cart and payment flows, real-time booking systems, and an interactive buyer-seller communication platform.'
-    },
-    velvetvet: {
-      title: '✨ Designed over 40+ ✨\nDesktop mockups for the Hotel Resort Website',
-      desc: 'Designed over 40+ desktop mockups for the Hotel Resort website, focusing on elegant layouts, intuitive booking flows, and a luxurious user experience.',
-      showcaseTitle: '💛 Mockup Showcase 💛',
-      showcaseDesc: 'Designed a fully interactive and functional website, including Home, About Us, Facilities, Rooms, and Checkout pages.\n\nVelvet Oasis\'s Home Page\nDesigned Velvet Oasis’s homepage with engaging visuals and clear call-to-actions, highlighting room options to guide users seamlessly toward booking.'
-    }
   };
 
   const [cloudIntensity, setCloudIntensity] = useState(0);
