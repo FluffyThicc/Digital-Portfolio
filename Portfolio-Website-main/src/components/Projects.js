@@ -10,7 +10,7 @@ import deepsyncLogo from "../assets/img/deepsync-app-logo.png";
 import deepsyncMockup from "../assets/img/deepsync-appstore-mockup.png";
 import deepsyncPhone from "../assets/img/deepsync-phone.png";
 import miniMart from "../assets/img/mini-mart.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AboutMeParticles from "./AboutMeParticles";
 import placeholderImg from '../assets/img/project-img1.png';
 
@@ -26,7 +26,7 @@ export const Projects = () => {
     {
       key: 'savour',
       title: "Savour",
-      imgUrl: miniMart,
+      imgUrl: require('../assets/img/savour-shop-image.png'),
       icon: "🌱",
     },
     {
@@ -153,7 +153,7 @@ export const Projects = () => {
         title: 'Savour\'s Product Promotion & Discount Page',
         subtitle: 'Clean & User-Friendly Layout',
         desc: 'Showcases a clean, user-friendly layout for browsing products and discovering discounts, designed to enhance shopping efficiency and engagement. Features intuitive navigation and clear product presentation.',
-        img: require('../assets/img/savour-shop-image.png'),
+        img: require('../assets/img/savour-screenshot-1.png'),
         glowColor: '#50E3C2'
       },
       {
@@ -302,169 +302,166 @@ export const Projects = () => {
     }
   };
 
-  return (
-    <section className="project galaxy-projects" id="project">
-      <AboutMeParticles particleColors={["rgba(123,97,255,0.7)", "rgba(255,255,255,0.8)", "rgba(123,97,255,0.4)", "rgba(255,255,255,0.5)"]} style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0}} />
-      <Container>
-        <Row>
-          <Col size={12}>
-            <h2 className="galaxy-title">🚀 Project Showcase</h2>
-            <div className="project-cards-select">
-              <div className="project-card-select-row project-card-select-all-row">
-                <div 
-                  className={`project-card-select project-card-select-all${selectedProject === 'all' ? ' selected' : ''}`}
-                  onClick={() => setSelectedProject('all')}
-                >
-                  <span className="project-card-select-title">All Projects</span>
-                </div>
-              </div>
-              <div className="project-card-select-row">
-                {showcaseProjects.map(project => (
-                  <div 
-                    key={project.key}
-                    className={`project-card-select${selectedProject === project.key ? ' selected' : ''}`}
-                    onClick={() => setSelectedProject(project.key)}
-                  >
-                    <span className="project-card-select-icon">{project.icon}</span>
-                    <span className="project-card-select-title">{project.title}</span>
-                  </div>
-                ))}
+  const [cloudIntensity, setCloudIntensity] = useState(0);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setCloudIntensity(1);
+  }, 100);
+  return () => clearTimeout(timer);
+}, []);
+
+return (
+  <section className="project" id="projects" style={{ position: 'relative', overflow: 'hidden' }}>
+    <div style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'radial-gradient(ellipse at center, rgba(123, 97, 255, 0.1) 0%, rgba(0,0,0,0) 70%)',
+      pointerEvents: 'none',
+      zIndex: 1,
+      opacity: cloudIntensity,
+      transition: 'opacity 2s ease-in-out'
+    }} />
+    <AboutMeParticles particleColors={["rgba(123,97,255,0.7)", "rgba(255,255,255,0.8)", "rgba(123,97,255,0.4)", "rgba(255,255,255,0.5)"]} style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0}} />
+    <Container>
+      <Row>
+        <Col size={12}>
+          <h2 className="galaxy-title">🚀 Project Showcase</h2>
+          <div className="project-cards-select">
+            <div className="project-card-select-row project-card-select-all-row">
+              <div 
+                className={`project-card-select project-card-select-all${selectedProject === 'all' ? ' selected' : ''}`}
+                onClick={() => setSelectedProject('all')}
+              >
+                <span className="project-card-select-title">All Projects</span>
               </div>
             </div>
-            {/* Remove project intro and design/showcase sections */}
-            <div className="galaxy-projects-grid">
-              {filteredProjects.map((project, idx) => (
-                <div className="galaxy-project-card" key={idx}>
-                  {/* Project Intro Section */}
-                  {projectIntros[project.key] && (
-                    <div
-                      className="project-intro galaxy-project-intro"
+            <div className="project-card-select-row">
+              {showcaseProjects.map(project => (
+                <div 
+                  key={project.key}
+                  className={`project-card-select${selectedProject === project.key ? ' selected' : ''}`}
+                  onClick={() => setSelectedProject(project.key)}
+                >
+                  <span className="project-card-select-icon">{project.icon}</span>
+                  <span className="project-card-select-title">{project.title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Remove project intro and design/showcase sections */}
+          <div className="galaxy-projects-grid">
+            {filteredProjects.map((project, idx) => (
+              <div className="galaxy-project-card" key={idx}>
+                {/* Project Intro Section */}
+                {projectIntros[project.key] && (
+                  <div
+                    className="project-intro galaxy-project-intro"
+                    style={{
+                      border: `3px solid ${
+                        project.key === 'savour' ? '#50E3C2' :
+                        project.key === 'axify' ? '#FF69B4' :
+                        project.key === 'velvetvet' ? '#FFD600' :
+                        '#B266FF'
+                      }`,
+                      boxShadow: `0 0 32px ${
+                        project.key === 'savour' ? '#50E3C288' :
+                        project.key === 'axify' ? '#FF69B488' :
+                        project.key === 'velvetvet' ? '#FFD60088' :
+                        '#B266FF88'
+                      }`,
+                      background: `linear-gradient(120deg, ${
+                        project.key === 'savour' ? 'rgba(80,227,194,0.13)' :
+                        project.key === 'axify' ? 'rgba(255,105,180,0.13)' :
+                        project.key === 'velvetvet' ? 'rgba(255,214,0,0.13)' :
+                        'rgba(178,102,255,0.13)'
+                      } 60%, rgba(255,255,255,0.07) 100%)`,
+                      color: '#fff',
+                      borderRadius: '28px',
+                      marginBottom: '24px',
+                      marginTop: '0',
+                      textShadow: `0 0 16px ${
+                        project.key === 'savour' ? '#50E3C2' :
+                        project.key === 'axify' ? '#FF69B4' :
+                        project.key === 'velvetvet' ? '#FFD600' :
+                        '#B266FF'
+                      }44, 0 0 24px #fff8`
+                    }}
+                  >
+                    <h3
+                      className="project-intro-title"
                       style={{
-                        border: `3px solid ${
-                          project.key === 'savour' ? '#50E3C2' :
-                          project.key === 'axify' ? '#FF69B4' :
-                          project.key === 'velvetvet' ? '#FFD600' :
-                          '#B266FF'
-                        }`,
-                        boxShadow: `0 0 32px ${
-                          project.key === 'savour' ? '#50E3C288' :
-                          project.key === 'axify' ? '#FF69B488' :
-                          project.key === 'velvetvet' ? '#FFD60088' :
-                          '#B266FF88'
-                        }`,
-                        background: `linear-gradient(120deg, ${
-                          project.key === 'savour' ? 'rgba(80,227,194,0.13)' :
-                          project.key === 'axify' ? 'rgba(255,105,180,0.13)' :
-                          project.key === 'velvetvet' ? 'rgba(255,214,0,0.13)' :
-                          'rgba(178,102,255,0.13)'
-                        } 60%, rgba(255,255,255,0.07) 100%)`,
-                        color: '#fff',
-                        borderRadius: '28px',
-                        marginBottom: '24px',
-                        marginTop: '0',
+                        color: project.key === 'savour' ? '#50E3C2' :
+                               project.key === 'axify' ? '#FF69B4' :
+                               project.key === 'velvetvet' ? '#FFD600' :
+                               '#B266FF',
                         textShadow: `0 0 16px ${
                           project.key === 'savour' ? '#50E3C2' :
                           project.key === 'axify' ? '#FF69B4' :
                           project.key === 'velvetvet' ? '#FFD600' :
                           '#B266FF'
-                        }44, 0 0 24px #fff8`
+                        }88, 0 0 24px #fff8`
                       }}
                     >
-                      <h3
-                        className="project-intro-title"
-                        style={{
-                          color: project.key === 'savour' ? '#50E3C2' :
-                                 project.key === 'axify' ? '#FF69B4' :
-                                 project.key === 'velvetvet' ? '#FFD600' :
-                                 '#B266FF',
-                          textShadow: `0 0 16px ${
-                            project.key === 'savour' ? '#50E3C2' :
-                            project.key === 'axify' ? '#FF69B4' :
-                            project.key === 'velvetvet' ? '#FFD600' :
-                            '#B266FF'
-                          }88, 0 0 24px #fff8`
-                        }}
-                      >
-                        {projectIntros[project.key].title}
-                      </h3>
-                      <div
-                        className="project-intro-subtitle"
-                        style={{
-                          color: project.key === 'savour' ? '#50E3C2' :
-                                 project.key === 'axify' ? '#FF69B4' :
-                                 project.key === 'velvetvet' ? '#FFD600' :
-                                 '#B266FF',
-                          textShadow: `0 0 12px ${
-                            project.key === 'savour' ? '#50E3C2' :
-                            project.key === 'axify' ? '#FF69B4' :
-                            project.key === 'velvetvet' ? '#FFD600' :
-                            '#B266FF'
-                          }88`
-                        }}
-                      >
-                        {projectIntros[project.key].subtitle}
-                      </div>
-                      <div className="project-intro-desc">{projectIntros[project.key].desc}</div>
-                    </div>
-                  )}
-                  <div className="galaxy-project-img-frame">
-                    <img src={project.imgUrl} alt={project.title} className="galaxy-project-img" />
-                  </div>
-                  {/* What You're Looking At Section */}
-                  {projectWhatYouSee[project.key] && (
+                      {projectIntros[project.key].title}
+                    </h3>
                     <div
-                      className="project-what-you-see-section"
+                      className="project-intro-subtitle"
                       style={{
-                        border: `2.5px solid ${
+                        color: project.key === 'savour' ? '#50E3C2' :
+                               project.key === 'axify' ? '#FF69B4' :
+                               project.key === 'velvetvet' ? '#FFD600' :
+                               '#B266FF',
+                        textShadow: `0 0 12px ${
                           project.key === 'savour' ? '#50E3C2' :
                           project.key === 'axify' ? '#FF69B4' :
                           project.key === 'velvetvet' ? '#FFD600' :
                           '#B266FF'
-                        }`,
-                        boxShadow: `0 0 32px 0 #7B61FFcc, 0 0 0 8px #4A90E2cc`,
-                        background: 'radial-gradient(ellipse at 60% 0%, #1a1033 0%, #18102a 100%)',
-                        color: '#fff',
-                        borderRadius: '32px',
-                        margin: '18px 0 18px 0',
-                        padding: '32px 24px 24px 24px',
-                        textAlign: 'center',
-                        fontSize: '1.08rem',
-                        fontWeight: 500,
-                        position: 'relative',
-                        overflow: 'hidden',
-                        zIndex: 2
+                        }88`
                       }}
                     >
-                      <AboutMeParticles numParticles={36} particleColors={['#fff', '#B266FF', '#7B61FF', 'rgba(255,255,255,0.7)', 'rgba(178,102,255,0.7)']} style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0}} />
-                      <div style={{position: 'relative', zIndex: 1}}>
-                        <div style={{fontWeight: 800, fontSize: '1.13rem', marginBottom: 6, color: project.key === 'savour' ? '#50E3C2' : project.key === 'axify' ? '#FF69B4' : project.key === 'velvetvet' ? '#FFD600' : '#B266FF'}}>{projectWhatYouSee[project.key].title.split('\n').map((line, i) => <span key={i}>{line}<br/></span>)}</div>
-                        <div style={{marginBottom: 10}}>{projectWhatYouSee[project.key].desc}</div>
-                        <div style={{fontWeight: 800, fontSize: '1.13rem', marginBottom: 6, color: project.key === 'savour' ? '#50E3C2' : project.key === 'axify' ? '#FF69B4' : project.key === 'velvetvet' ? '#FFD600' : '#B266FF'}}>{projectWhatYouSee[project.key].showcaseTitle.split('\n').map((line, i) => <span key={i}>{line}<br/></span>)}</div>
-                        <div>{projectWhatYouSee[project.key].showcaseDesc.split('\n').map((line, i) => <span key={i}>{line}<br/></span>)}</div>
-                      </div>
+                      {projectIntros[project.key].subtitle}
                     </div>
-                  )}
-                  {/* Project Design/Showcase Section for Each Project */}
-                  {projectDesignShowcase[project.key] && (
-                    <div
-                      className="project-designshowcase-line galaxy-sparkle-bg"
-                      style={{
-                        border: `2.5px solid ${projectDesignShowcase[project.key].color}`,
-                        boxShadow: `0 0 32px 0 #7B61FFcc, 0 0 0 8px #4A90E2cc`,
-                        background: 'radial-gradient(ellipse at 60% 0%, #1a1033 0%, #18102a 100%)',
-                        color: '#fff',
-                        borderRadius: '32px',
-                        margin: '24px auto 18px auto',
-                        padding: '32px 24px 24px 24px',
-                        textAlign: 'center',
-                        position: 'relative',
-                        overflow: 'hidden',
-                        zIndex: 2
-                      }}
-                    >
-                      <AboutMeParticles numParticles={36} particleColors={['#fff', '#B266FF', '#7B61FF', 'rgba(255,255,255,0.7)', 'rgba(178,102,255,0.7)']} style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0}} />
-                      <div style={{position: 'relative', zIndex: 1}}>
-                        <div className="project-designshowcase-line-title" style={{color: projectDesignShowcase[project.key].color}}>{projectDesignShowcase[project.key].title}</div>
+                    <div className="project-intro-desc">{projectIntros[project.key].desc}</div>
+                  </div>
+                )}
+                <div className="galaxy-project-img-frame">
+                  <img src={project.imgUrl} alt={project.title} className="galaxy-project-img" />
+                </div>
+                {/* What You're Looking At Section */}
+                {projectWhatYouSee[project.key] && (
+                  <div
+                    className="project-what-you-see-section"
+                    style={{
+                      border: `2.5px solid ${
+                        project.key === 'savour' ? '#50E3C2' :
+                        project.key === 'axify' ? '#FF69B4' :
+                        project.key === 'velvetvet' ? '#FFD600' :
+                        '#B266FF'
+                      }`,
+                      boxShadow: `0 0 32px 0 #7B61FFcc, 0 0 0 8px #4A90E2cc`,
+                      background: 'radial-gradient(ellipse at 60% 0%, #1a1033 0%, #18102a 100%)',
+                      color: '#fff',
+                      borderRadius: '32px',
+                      margin: '18px 0 18px 0',
+                      padding: '32px 24px 24px 24px',
+                      textAlign: 'center',
+                      fontSize: '1.08rem',
+                      fontWeight: 500,
+                      position: 'relative',
+                      overflow: 'hidden',
+                      zIndex: 2
+                    }}
+                  >
+                    <AboutMeParticles numParticles={36} particleColors={['#fff', '#B266FF', '#7B61FF', 'rgba(255,255,255,0.7)', 'rgba(178,102,255,0.7)']} style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0}} />
+                    <div style={{position: 'relative', zIndex: 1}}>
+                      <div style={{fontWeight: 800, fontSize: '1.13rem', marginBottom: 6, color: project.key === 'savour' ? '#50E3C2' : project.key === 'axify' ? '#FF69B4' : project.key === 'velvetvet' ? '#FFD600' : '#B266FF'}}>{projectWhatYouSee[project.key].title.split('\n').map((line, i) => <span key={i}>{line}<br/></span>)}</div>
+                      <div style={{marginBottom: 10}}>{projectWhatYouSee[project.key].desc}</div>
+                      <div style={{fontWeight: 800, fontSize: '1.13rem', marginBottom: 6, color: project.key === 'savour' ? '#50E3C2' : project.key === 'axify' ? '#FF69B4' : project.key === 'velvetvet' ? '#FFD600' : '#B266FF'}}>{projectWhatYouSee[project.key].showcaseTitle.split('\n').map((line, i) => <span key={i}>{line}<br/></span>)}</div>
+                      <div>{projectWhatYouSee[project.key].showcaseDesc.split('\n').map((line, i) => <span key={i}>{line}<br/></span>)}</div>
                         <div className="project-designshowcase-line-desc">{projectDesignShowcase[project.key].desc1}</div>
                         <div className="project-designshowcase-line-desc2">{projectDesignShowcase[project.key].desc2.split('\n').map((line, i) => <span key={i}>{line}<br/></span>)}</div>
                       </div>

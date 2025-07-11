@@ -2,6 +2,9 @@ import React from 'react';
 import oasisImg from '../assets/img/project-img1.png';
 import savourImg from '../assets/img/project-img2.png';
 import axifyImg from '../assets/img/project-img3.png';
+import velvetOasisCover from '../assets/img/velvet-oasis-main-image.png';
+import savourAppCover from '../assets/img/savour-main-image.png';
+import savourNewImage from '../assets/img/savour-new-image.png';
 import { FaStar, FaTrello, FaCheckCircle, FaRegLightbulb, FaRegClock, FaRegBell, FaRegListAlt } from 'react-icons/fa';
 
 const kanbanIdeas = [
@@ -41,12 +44,12 @@ export default function UXExperience() {
           <div className="uxexp-card uxexp-card-img">
             <div className="uxexp-card-header"><span className="uxexp-dot uxexp-dot-gold">●</span> Velvet Oasis Resort - Solo Project</div>
             <div className="uxexp-card-desc">Designed and delivered a fully interactive, user-friendly hotel website, tailored for families and couples seeking a luxurious, aesthetic getaway. 🏖️</div>
-            <img src={oasisImg} alt="Oasis Project" className="uxexp-card-img-main" />
+            <img src={velvetOasisCover} alt="Oasis Project" className="uxexp-card-img-main" />
           </div>
           <div className="uxexp-card uxexp-card-img">
             <div className="uxexp-card-header"><span className="uxexp-dot uxexp-dot-green">●</span> Savour App - Food Waste Sustainability App</div>
             <div className="uxexp-card-desc">A smart platform that reduces food waste by offering visually imperfect or near-expiry food at discounted prices 🥕🍃.</div>
-            <img src={savourImg} alt="Savour Project" className="uxexp-card-img-main" />
+            <img src={savourNewImage} alt="Savour Project" className="uxexp-card-img-main" />
           </div>
         </div>
         <div className="uxexp-cards-row">
