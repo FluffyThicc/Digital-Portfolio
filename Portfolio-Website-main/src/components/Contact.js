@@ -57,7 +57,7 @@ export const Contact = () => {
           <div className="galaxy-divider" />
           <p className="galaxy-contact-desc">
             Ready to apply creative impact—translating thumbnail design skills to UX, I focus on attention-grabbing visuals, user clarity, and brand consistency to help digital products stand out and connect with audiences.
-            <span style={{ display: 'block', marginTop: 12, fontWeight: 700, color: '#FFD600', fontSize: '1.08em' }}>
+            <span style={{ display: 'block', marginTop: 12, fontWeight: 700, color: '#fff', fontSize: '1.08em' }}>
               💬 Let’s collaborate to create digital experiences that get noticed and drive results!
             </span>
           </p>
