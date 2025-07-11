@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Digital-Portfolio/static/css/main.c4c5dce6.css",
-    "main.js": "/Digital-Portfolio/static/js/main.12378519.js",
+    "main.css": "/Digital-Portfolio/static/css/main.32233177.css",
+    "main.js": "/Digital-Portfolio/static/js/main.c967f91c.js",
     "static/js/453.15a9cb34.chunk.js": "/Digital-Portfolio/static/js/453.15a9cb34.chunk.js",
     "static/media/velvet-oasis-main-image.png": "/Digital-Portfolio/static/media/velvet-oasis-main-image.7e684cdd29f5f3a19c01.png",
     "static/media/mini-mart.png": "/Digital-Portfolio/static/media/mini-mart.58ba4542adc00303f097.png",
@@ -18,6 +18,8 @@
     "static/media/savour-shop-image.png": "/Digital-Portfolio/static/media/savour-shop-image.26375e30f34d65bb553a.png",
     "static/media/deepsync-appstore-mockup.png": "/Digital-Portfolio/static/media/deepsync-appstore-mockup.695369f5d4b9bd5f98cc.png",
     "static/media/deepsync-phone.png": "/Digital-Portfolio/static/media/deepsync-phone.571947496337ffec0d7d.png",
+    "static/media/savour-new-image.png": "/Digital-Portfolio/static/media/savour-new-image.2b601e513e1d9c89c0ff.png",
+    "static/media/savour-screenshot-1.png": "/Digital-Portfolio/static/media/savour-screenshot-1.5448ef0edd650ac5d511.png",
     "static/media/velvet-oasis-screenshot-3.png": "/Digital-Portfolio/static/media/velvet-oasis-screenshot-3.0f003337d36a11254f0a.png",
     "static/media/velvet-oasis-screenshot-5.png": "/Digital-Portfolio/static/media/velvet-oasis-screenshot-5.1abbaa121235b7189dac.png",
     "static/media/velvet-oasis-screenshot-2.png": "/Digital-Portfolio/static/media/velvet-oasis-screenshot-2.2fda4a46354c65730667.png",
@@ -36,6 +38,7 @@
     "static/media/savour-screenshot-3.png": "/Digital-Portfolio/static/media/savour-screenshot-3.32857eb97a8097ba7767.png",
     "static/media/axify-screenshot-5.png": "/Digital-Portfolio/static/media/axify-screenshot-5.91d251d558205fd444d9.png",
     "static/media/header-img.svg": "/Digital-Portfolio/static/media/header-img.400baa4260daac98f2b2b1ccf08761c2.svg",
+    "static/media/eami-l023.jpg": "/Digital-Portfolio/static/media/eami-l023.367292e23b68f0b52b02.jpg",
     "static/media/savour-screenshot-2.png": "/Digital-Portfolio/static/media/savour-screenshot-2.ad3d43ad21183bd19f53.png",
     "static/media/CentraNo2-Bold.ttf": "/Digital-Portfolio/static/media/CentraNo2-Bold.2faff7f7d3fc92a2fcd9.ttf",
     "static/media/CentraNo2-Medium.ttf": "/Digital-Portfolio/static/media/CentraNo2-Medium.f94be5b326d78bb32b95.ttf",
@@ -56,12 +59,12 @@
     "index.html": "/Digital-Portfolio/index.html",
     "static/media/arrow2.svg": "/Digital-Portfolio/static/media/arrow2.b3d03e1b04ec1904a5658aea5776433c.svg",
     "static/media/arrow1.svg": "/Digital-Portfolio/static/media/arrow1.1088f8313e5637897aff2414e5938141.svg",
-    "main.c4c5dce6.css.map": "/Digital-Portfolio/static/css/main.c4c5dce6.css.map",
-    "main.12378519.js.map": "/Digital-Portfolio/static/js/main.12378519.js.map",
+    "main.32233177.css.map": "/Digital-Portfolio/static/css/main.32233177.css.map",
+    "main.c967f91c.js.map": "/Digital-Portfolio/static/js/main.c967f91c.js.map",
     "453.15a9cb34.chunk.js.map": "/Digital-Portfolio/static/js/453.15a9cb34.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c4c5dce6.css",
-    "static/js/main.12378519.js"
+    "static/css/main.32233177.css",
+    "static/js/main.c967f91c.js"
   ]
 }
